@@ -7,7 +7,7 @@ attrs==19.1.0
 Automat==0.8.0
 bcrypt==3.1.7
 beautifulsoup4==4.9.0
-bleach==2.0.0
+bleach==3.1.4
 blinker==1.4
 blueprint==3.4.2
 Brlapi==0.7.0
