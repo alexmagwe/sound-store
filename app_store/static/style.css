@@ -1,0 +1,45 @@
+body
+{
+    background-color: ghostwhite;
+}
+nav
+{
+    background-color: darkgray;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+nav li
+{
+    display: inline-block;
+    font-size: 20px;
+    padding: 20px;
+}
+#logo 
+{
+    float: left;
+}
+#left1
+{
+    float: right;
+}
+#left2
+{
+    float: right;
+}
+.amp
+{
+    text-align: center;
+    float: center;
+    font: 40px;
+    margin-top: 100px;
+}
+.flex-grid-thirds
+{
+    display: flex;
+    justify-content: space-between;
+}
+.flex-grid-thirds .col
+{
+    width: 32%;
+}

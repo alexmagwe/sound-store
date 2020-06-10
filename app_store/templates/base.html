@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" lang="English">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+        <title>{% block title %}{% endblock title %}</title>
+    </head>
+    <body>
+        <nav class="Navbar">
+            <ol>
+                <li id="logo"><a href="{{url_for('shop.index')}}">Sound Mall</a></li>
+                {% if current_user.is_admin == True %}
+                <li id="logo1" ><a href="{{url_for('admin.dashboard')}}">Dashboard</a></li>
+                <li id="left2"><a href="{{url_for('user.logout')}}">Logout</a></li>
+                {% endif %}
+                {% if current_user.is_authenticated == True %}
+                <li id="logo1" ><a href="{{url_for('user.account',name=current_user.username)}}">Account</a></li>
+                <li id="left2"><a href="{{url_for('user.logout')}}">Logout</a></li>
+                {% else %}
+                <li id="left1"><a href="{{url_for('user.login')}}">Login</a></li>
+                <li id="left2"><a href="{{url_for('user.register')}}">Register</a></li>
+                {% endif %}
+            </ol>
+        </nav>
+        <main>
+            {% block main %}
+            {% endblock main %}
+        </main>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+    Sound Mall
+{% endblock title %}
+{% block main %}
+    <h1 class="amp">Welcome to the world of Sound</h1>
+    <div class="flex-grid-thirds">
+        {% for item in items %}
+            <div class="col">
+                <img src="{ item.item_pic }">
+                <h4><b>{ item.name }</b></h4>
+                <p>{ item.description }</p>
+                <button></button>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock main %}

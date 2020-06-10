@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" lang="English">
+        <meta >
+        <link type="text/css" rel="stylesheet" href="static/style.css">
+        <title>{% block title %}{% endblock title %}</title>
+    </head>
+    <body>
+        <nav>
+            <ol>
+                <li><a href="{{url_for('shop.index')}}">Home</a></li>
+                <li><a href="{{url_for('admin.dashboard')}}">Dashboard</a></li>
+                <li><a href="{{url_for('admin.create_item')}}">Add to Db</a></li>
+
+            </ol>
+        </nav>
+        <main>
+            {% block main %}
+            {% endblock main %}
+        </main>
+    </body>
+</html>
