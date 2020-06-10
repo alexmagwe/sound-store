@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %} {user_name} {% endblcok title %}
+{% block main %}
+    <div class="container-fluid">
+        <div class="col-12 ml-auto mr-auto">
+            <h4>Orders made</h4>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Date_Ordered</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Payment Method</th>
+                        <th scope="col">Item/Items Ordered</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <th>{order.id}</th>
+                        <th>{order.date_posted.strftime('%Y-%m-%d')}</th>
+                        <th>{order.user_address}</th>
+                        <th>{order.item_quantity}</th>
+                        <th>{order.payment}</th>
+                        <th>{order.purchased.name}</th>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+{% endblock main %}

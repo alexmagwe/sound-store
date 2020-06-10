@@ -42,7 +42,7 @@ class Order(db.Model):
     item_id = db.Column(db.Integer, db.ForeignKey('item.id'), nullable = False)
 
     def __repr__(self):
-        return f"User('{self.date_posted}','{self.user_address}', '{self.item_quantity}')"
+        return f"User('{self.id}','{self.date_posted}','{self.user_address}', '{self.item_quantity}','{self.payment}')"
 
 class CartItem(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)

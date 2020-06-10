@@ -32,13 +32,14 @@ def remove_from_cart(item_id):
     flash(f'Removed from Cart')
 
 
-@shop.route('/cart/<int:user_id>', methods=['GET','POST'])
+@shop.route('/cart/<name>', methods=['GET','POST'])
 @login_required
-def cart(user_id):
+def cart(name):
     user = current_user
     item = Item.query_all()
     if not user:
         return redirect(url_for('user.login'))
+    item = Item.query_all()
     form = ShoppingCartForm()
     if form.validate_on_submit():
         for item in items:

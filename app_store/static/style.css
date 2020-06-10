@@ -2,44 +2,30 @@ body
 {
     background-color: ghostwhite;
 }
-nav
-{
-    background-color: darkgray;
-    text-align: left;
-    padding: 0;
-    margin: 0;
-}
-nav li
-{
-    display: inline-block;
-    font-size: 20px;
-    padding: 20px;
-}
-#logo 
-{
-    float: left;
-}
-#left1
-{
-    float: right;
-}
-#left2
-{
-    float: right;
-}
 .amp
 {
     text-align: center;
-    float: center;
     font: 40px;
-    margin-top: 100px;
 }
 .flex-grid-thirds
 {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
 }
 .flex-grid-thirds .col
 {
     width: 32%;
+    margin: 5px 5px 5px 5px;
+    border-radius: 10px;
+    border: gold;
+}
+img
+{
+    max-width: 65%;
+    height: auto;
+    border-radius: 5px;
 }

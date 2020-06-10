@@ -3,21 +3,26 @@
     <head>
         <meta charset="UTF-8" lang="English">
         <meta >
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link type="text/css" rel="stylesheet" href="static/style.css">
         <title>{% block title %}{% endblock title %}</title>
     </head>
     <body>
-        <nav>
-            <ol>
-                <li><a href="{{url_for('shop.index')}}">Home</a></li>
-                <li><a href="{{url_for('admin.dashboard')}}">Dashboard</a></li>
-                <li><a href="{{url_for('admin.create_item')}}">Add to Db</a></li>
-
-            </ol>
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel mb-0">
+            <div class="conatiner-fluid">
+                <div class="collapse navbar-collapse">
+                    <a  class="nav-item nav-link" href="{{url_for('shop.index')}}">Home</a>
+                    <a class="nav-item nav-link" href="{{url_for('admin.dashboard')}}">Dashboard</a>
+                    <a class="nav-item nav-link" href="{{url_for('admin.create_item')}}">Add to Db</a>
+                </div>
+            </div>
         </nav>
         <main>
             {% block main %}
             {% endblock main %}
         </main>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https:
     </body>
 </html>
