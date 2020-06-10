@@ -4,7 +4,8 @@
 <div class="container-fluid">
     <div class="col-12 ml-auto mr-auto">
         <h4>Orders made</h4>
-        <form>
+        <form method="POST" action="" enctype="multipart/form-data"> 
+            {{form.hidden_tag()}}
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
