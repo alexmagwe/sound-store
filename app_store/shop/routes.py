@@ -32,9 +32,9 @@ def remove_from_cart(item_id):
     flash(f'Removed from Cart')
 
 
-@shop.route('/cart/<name>', methods=['GET','POST'])
+@shop.route('/cart/<username>', methods=['GET','POST'])
 @login_required
-def cart(name):
+def cart(username):
     user = current_user
     item = Item.query_all()
     if not user:
@@ -42,10 +42,12 @@ def cart(name):
     item = Item.query_all()
     form = ShoppingCartForm()
     if form.validate_on_submit():
-        for item in items:
-            order = Order(user_address = form.user_address.data, item_quantity=form.item_quantity.data, payment=form.payment.data, consumer = current_user, purchased=item_id)
-            db.session.add(order)
-            db.session.commit()
+        items_purchased = []
+        for item_id in items:
+            append.items_purchased(item_id)
+        order = Order(user_address = form.user_address.data, item_quantity=form.item_quantity.data, payment=form.payment.data, consumer = current_user, purchased=items_purchased)
+        db.session.add(order)
+        db.session.commit()
         flash(f'Order placement succesful','succes')
         return redirect(url_for('shop.index'))
-    return render_template('shop/cart.html', title = 'user_name', form=form)
+    return render_template('shop/cart.html', title = 'username', item=item, form=form)

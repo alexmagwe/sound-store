@@ -41,13 +41,13 @@ def register():
 
 
 
-@user.route('/account/<name>', methods=['GET','POST'])
+@user.route('/account/<username>', methods=['GET','POST'])
 @login_required
-def account(name):
+def account(username):
     user = current_user
     if not user:
         return redirect(url_for('user.login'))
-    return render_template('user/account.html', title = 'user_name')
+    return render_template('user/account.html', title = 'username')
 
 
 @user.route("/logout")
