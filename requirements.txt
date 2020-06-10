@@ -61,7 +61,7 @@ GeoIP==1.3.2
 greenlet==0.4.16
 gunicorn==19.7.1
 html5lib==0.999999999
-httpie==0.9.9
+httpie==1.0.3
 httplib2==0.14.0
 hyperlink==19.0.0
 idna==2.5
