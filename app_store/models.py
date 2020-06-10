@@ -25,6 +25,7 @@ class Item(db.Model):
     item_pic = db.Column(db.String(80), nullable = False)
     name = db.Column(db.String(200), nullable=False)
     description = db.Column(db.Text, nullable=False)
+    price = db.Column(db.String(200), nullable=False)
     orders = db.relationship('Order',backref='purchased', lazy=True )
     cartitems = db.relationship('CartItem', backref='product')
 
@@ -48,6 +49,8 @@ class CartItem(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     item_id = db.Column(db.Integer, db.ForeignKey('item.id'), nullable = True)
 
+    def __repr__(self):
+        return f"User('{self.id}')
 
 class Permissions(ModelView):
 

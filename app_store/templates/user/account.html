@@ -13,6 +13,7 @@
                         <th scope="col">Quantity</th>
                         <th scope="col">Payment Method</th>
                         <th scope="col">Item/Items Ordered</th>
+                        <th scope="col">Price</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,11 +25,11 @@
                         <th>{order.item_quantity}</th>
                         <th>{order.payment}</th>
                         <th>{order.purchased.name}</th>
+                        <th>{order.purchased.price}</th>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
-
         </div>
     </div>
 
