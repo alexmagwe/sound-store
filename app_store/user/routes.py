@@ -19,7 +19,7 @@ def login():
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user, remember = form.remember.data)
             next_page = request.args.get('next')
-            return redirect(next_page) if next_page else redirect(url_for(shop.index))
+            return redirect(next_page) if next_page else redirect(url_for('shop.index'))
         else:
             flash('Login was Unsuccessful. Please check your Email and Password')
     return render_template('user/login.html', title = 'Sign In' ,form=form)        
@@ -41,9 +41,9 @@ def register():
 
 
 
-@user.route('/account/<username>', methods=['GET','POST'])
+@user.route('/account/<name>', methods=['GET','POST'])
 @login_required
-def account(username):
+def account(name):
     user = current_user
     if not user:
         return redirect(url_for('user.login'))
