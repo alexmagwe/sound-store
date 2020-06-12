@@ -49,7 +49,8 @@ class CartItem(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     item_id = db.Column(db.Integer, db.ForeignKey('item.id'), nullable = True)
 
-   
+    def __repr__(self):
+        return f"User('{self.id}')"
 
 class Permissions(ModelView):
 
