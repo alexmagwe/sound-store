@@ -14,7 +14,7 @@ admin = Blueprint('admin', __name__)
 @login_required
 def dashboard():
     if current_user.is_admin:
-        return render_template('admin/dashboard.html', title = Admin)
+        return render_template('admin/dashboard.html', title = 'Admin')
     else:
         return redirect(url_for('errors.404'))   
 

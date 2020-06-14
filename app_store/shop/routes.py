@@ -37,6 +37,7 @@ def remove_from_cart(item_id):
 def cart(username):
     user = current_user
     item = Item.query_all()
+    cartitem = CartItem.query.all()
     if not user:
         return redirect(url_for('user.login'))
     item = Item.query_all()
@@ -50,4 +51,4 @@ def cart(username):
         db.session.commit()
         flash(f'Order placement succesful','succes')
         return redirect(url_for('shop.index'))
-    return render_template('shop/cart.html', title = 'username', item=item, form=form)
+    return render_template('shop/cart.html', title = 'username', item=item, form=form, cartitem=cartitem)

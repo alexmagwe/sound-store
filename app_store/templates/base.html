@@ -5,26 +5,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
-        <title>{% block title %}{% endblock title %}</title>
+        <title>
+            {% block title %}
+            {% endblock title %}
+        </title>
     </head>
     <body>
         <nav class="navbar navbar-expand-md navbar-dark bg-steel mb-0">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse">
-                    <a class="nav-item nav-link" href="{{url_for('shop.index')}}">Sound Mall</a>
+                    <a class="nav-item nav-link text-dark" href="{{url_for('shop.index')}}">Sound Mall</a>
                     {% if current_user.is_admin == True %}
-                    <a class="nav-item nav-link" href="{{url_for('admin.dashboard')}}">Dashboard</a>
-                    <a class="nav-item nav-link" href="{{url_for('user.logout')}}">Logout</a>
+                    <a class="nav-item nav-link text-dark" href="{{url_for('admin.dashboard')}}">Dashboard</a>
                     {% endif %}
 
                 </div>
                 <div class="navbar-nav">
                     {% if current_user.is_authenticated == True %}
-                    <a class="nav-item nav-link" href="{{url_for('user.account',name=current_user.username)}}">Account</a>
-                    <a class="nav-item nav-link" href="{{url_for('user.logout')}}">Logout</a>
+                    <a class="nav-item nav-link text-dark" href="{{url_for('user.account',name=current_user.username)}}">Account</a>
+                    <a class="nav-item nav-link text-dark" href="{{url_for('user.logout')}}">Logout</a>
                     {% else %}
-                    <a class="nav-item nav-link" href="{{url_for('user.login')}}">Login</a>
-                    <a class="nav-item nav-link" href="{{url_for('user.register')}}">Register</a>
+                    <a class="nav-item nav-link text-dark" href="{{url_for('user.login')}}">Login</a>
+                    <a class="nav-item nav-link text-dark" href="{{url_for('user.register')}}">Register</a>
                     {% endif %}
                 </div>
             </div>
