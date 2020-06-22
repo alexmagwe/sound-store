@@ -26,5 +26,6 @@ class ItemForm(FlaskForm):
     item_pic = FileField('Image File', validators=[FileAllowed(['jpg','png','jpeg'])])
     name = StringField('Item Name', validators=[DataRequired()])
     description = StringField('Item Description', validators=[DataRequired()])
+    price = StringField('Price', validators=[DataRequired()])
     submit = SubmitField('Create Item')
 

@@ -39,7 +39,7 @@ def create_item():
         form = ItemForm()
         if form.validate_on_submit():
             image_file = save_picture(form.item_pic.data)
-            item = Item(item_pic = image_file,  name = form.name.data, description = form.description.data, )
+            item = Item(item_pic = image_file,  name = form.name.data, description = form.description.data, price = form.price.data )
             db.session.add(item)
             db.session.commit()
             flash(f'Item, {form.name.data} succesfully added to database','success')

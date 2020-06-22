@@ -2,7 +2,7 @@
 {% block title %} Add to Db {% endblock title %}
 {% block main %}
 <div class="col-8 ml-auto mr-auto">
-    <form method="POST" action="" enctype="mutipart/form-data">
+    <form method="POST" action="" enctype="multipart/form-data"></form>
         {{ form.hidden_tag() }}
             <legend class="border-bottom mb-4">Create Component</legend>
             <div class="form-group">
@@ -38,6 +38,19 @@
                     </div>
                 {% else %}
                     {{ form.description(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.price.label(class="form-control-label") }}
+                {% if form.price.errors %}
+                    {{ form.price(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.price.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.price(class="form-control form-control-lg") }}
                 {% endif %}
             </div>
         <div class="form-group">
