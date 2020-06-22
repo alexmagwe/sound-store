@@ -1,11 +1,10 @@
-import secrets
-import os
-from PIL import Image
+import secrets, os
 from app_store import admin, login_manager, db, bcrypt
 from app_store.models import User, Item, Order
 from flask import Blueprint, render_template, redirect, url_for, flash
 from app_store.admin.forms import AdminRegisterForm, ItemForm
 from flask_login import login_user, current_user, logout_user, login_required
+from app_store.admin.utils import save_picture
 
 admin = Blueprint('admin', __name__)
 
@@ -31,22 +30,6 @@ def admin_register():
         flash(f'Registered Successfully','success')
         return redirect(url_for('user.login'))
     return render_template('admin/admin_register.html', form=form, title='Admin-Registration')
-
-def save_picture(form_item_pic):
-    random_hex = secrets.token_hex(10)
-    _, f_ext = os.path.splitext(form_item_pic.filename)
-    picture_fn = random_hex+f_ext
-    size = (200,200)
-    img = Image.open(form_item_pic)
-    img.thumbnail(size)
-    picture_path = os.path.join(app.root_path, 'static/images', picture_fn)
-    if not os.path.exists(os.path.join(app.root_path,'static/images')):
-        print('Directory does not exist, creating one...')
-        os.mkdir(os.path.join(app.root_path, 'static/images'))
-    img.save(picture_path)
-    print('Image Saved')
-    return picture_fn
-    
 
 
 @admin.route('/create_item', methods=['GET','POST'])

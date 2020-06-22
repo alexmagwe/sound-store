@@ -48,7 +48,7 @@ def account(name):
     user = current_user
     if not user:
         return redirect(url_for('user.login'))
-    return render_template('user/account.html', title = 'username', name=current_user.username ,order=order)
+    return render_template('user/account.html', title = current_user.username, name=current_user.username ,order=order)
 
 
 @user.route("/logout")

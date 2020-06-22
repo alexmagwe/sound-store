@@ -23,8 +23,8 @@ class AdminRegisterForm(FlaskForm):
             return ValidationError('Email Taken')
 
 class ItemForm(FlaskForm):
-    item_pic = FileField('Item_Image', validators=[FileAllowed(['jpg','png','jpeg'])])
-    name = StringField('Item_Name', validators=[DataRequired()])
-    description = StringField('Item_Description', validators=[DataRequired()])
-    submit = SubmitField('Create_Item')
+    item_pic = FileField('Image File', validators=[FileAllowed(['jpg','png','jpeg'])])
+    name = StringField('Item Name', validators=[DataRequired()])
+    description = StringField('Item Description', validators=[DataRequired()])
+    submit = SubmitField('Create Item')
 
