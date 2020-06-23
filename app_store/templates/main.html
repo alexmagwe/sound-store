@@ -7,8 +7,7 @@
         <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
         <script src="{{ url_for('static', filename='style.js') }}"></script>
         <title>
-            {% block title %}
-            {% endblock title %}
+            World of Sound
         </title>
     </head>
     <body>
@@ -33,7 +32,8 @@
             </div>
         </nav>
         <div class="container-fluid">
-            <main role="main" class="col-12 ml-auto mr-auto">
+            <h1 class="amp">Welcome to the world of Sound</h1>
+            <main role="main" class="flex-grid-thirds">
                 {% block main %}
                 {% endblock main %}
             </main>

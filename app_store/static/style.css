@@ -16,7 +16,7 @@ body
     flex-wrap: wrap;
     align-content: center;
 }
-.flex-grid-thirds .col
+.flex-grid-thirds .cols
 {
     width: 32%;
     margin: 5px 5px 5px 5px;

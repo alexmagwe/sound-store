@@ -23,9 +23,9 @@
                     {% for cartitem in cartitems  %}
                     <tr>
                         <th><button>Delete(Icon)</button></th>
-                        <th>{cartitem.id}</th>
-                        <th>{cartitem.purchased.name}</th>
-                        <th>{cartitem.purchased.price}</th>
+                        <th>{{cartitem.id}}</th>
+                        <th>{{cartitem.purchased.name}}</th>
+                        <th>{{cartitem.purchased.price}}</th>
                         <th>
                             <div class="form-group">
                                 {{ form.item_quantity.label(class="form-control-label") }}
