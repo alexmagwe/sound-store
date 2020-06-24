@@ -2,7 +2,7 @@ from app_store import db, login_manager
 from flask import Blueprint, redirect, flash, url_for, render_template
 from flask_login import login_user, current_user, logout_user, login_required
 from app_store.shop.forms import ShoppingCartForm
-from app_store.models import User, Item, Order, CartItem
+from app_store.models import User, Item, Order, Cart
 
 
 shop = Blueprint('shop', __name__)

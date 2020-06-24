@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from app_store.models import User, Item
-from wtforms import StringField, SubmitField, PasswordField
+from wtforms import StringField, SubmitField, PasswordField, DecimalField
 from wtforms.validators import DataRequired, ValidationError, Length, Email, EqualTo
 from flask_wtf.file import FileField ,FileAllowed
 
@@ -26,6 +26,6 @@ class ItemForm(FlaskForm):
     item_pic = FileField('Image File', validators=[FileAllowed(['jpg','png','jpeg'])])
     name = StringField('Item Name', validators=[DataRequired()])
     description = StringField('Item Description', validators=[DataRequired()])
-    price = StringField('Price', validators=[DataRequired()])
+    price = DecimalField('Price', validators=[DataRequired()])
     submit = SubmitField('Create Item')
 
