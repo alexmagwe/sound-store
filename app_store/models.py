@@ -37,10 +37,12 @@ class Category(db.Model):
 
 class Item(db.Model):
     id = db.Column(db.Integer, primary_key= True, autoincrement=True)
-    item_pic = db.Column(db.String(80), nullable = False)
+    item_pic1 = db.Column(db.String(80), nullable = False)
+    item_pic2 = db.Column(db.String(80), nullable = False)
+    item_pic3 = db.Column(db.String(80), nullable = False)
     name = db.Column(db.String(200), nullable=False)
     description = db.Column(db.Text, nullable=False)
-    price = db.Column(db.DECIMAL, nullable=False)
+    price = db.Column(db.Integer, nullable=False)
 
     orders = db.relationship('Order',backref='buying', lazy=True )
     Ordereditems = db.relationship('Ordereditem',backref='paid_goods', lazy=True )
@@ -48,12 +50,12 @@ class Item(db.Model):
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable = True)
 
     def __repr__(self):
-        return f"Item('{self.item_pic}','{self.name}','{self.description}','{self.price}')"
+        return f"Item('{self.item_pic1}', '{self.item_pic2}', '{self.item_pic3}', '{self.name}','{self.description}','{self.price}')"
 
 class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement = True)
     date_posted = db.Column(db.DateTime, nullable=False, default = datetime.utcnow)
-    total_price = db.Column(db.DECIMAL, nullable=False)
+    total_price = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     item_id = db.Column(db.Integer, db.ForeignKey('item.id'), nullable=False)
 

@@ -1,5 +1,5 @@
 from app_store import db, login_manager
-from flask import Blueprint, redirect, flash, url_for, render_template
+from flask import Blueprint, redirect, flash, url_for, render_template, request
 from flask_login import login_user, current_user, logout_user, login_required
 from app_store.shop.forms import ShoppingCartForm
 from app_store.models import User, Item, Order, Cart
@@ -10,8 +10,8 @@ shop = Blueprint('shop', __name__)
 @shop.route('/')
 @shop.route('/index')
 def index():
-    item = Item.query.all()
-    return render_template('shop/store.html', item=item)
+    items = Item.query.all()
+    return render_template('shop/store.html', items = items )
 
 
 @shop.route('/add_to_cart/<int:item_id>',methods=['POST'])
@@ -22,6 +22,12 @@ def add_to_cart(item_id):
     db.session.commit()
     flash(f'Added to Cart','Success')
     
+
+@shop.route('/item_extra/<int:item_id>', methods=['GET','POST'])
+def item_extra(item_id):
+    item = Item.query.get_or_404(item_id)
+    return render_template('shop/item_extra.html', item = item , title = 'item discription' )
+
 
 @shop.route('/remove_from_cart/<int:item_id>', methods=['GET','POST'])
 def remove_from_cart(item_id):

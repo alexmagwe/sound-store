@@ -1,11 +1,12 @@
 {% extends 'main.html' %}
 {% block main %}
         {% for item in items %}
+        <a href="{{ url_for('shop.item_extra', item_id = item.id) }}" >
             <div class="cols">
-                <img alt="" src="{{  url_for('static', filename='images/' + item.item_pic)}}">
-                <h4><b>{{ item.name }}</b></h4>
-                <h4>{{ item.price }}</h4>
-                <p>{{ item.description }}</p>
+                <img alt="" src="{{  url_for('static', filename='images/' + item.item_pic1)}}">
+                <h4><b>Name:{{ item.name }}</b></h4>
+                <h4>Price:{{ item.price }}</h4>
             </div>
+        </a>
         {% endfor %}
 {% endblock main %}

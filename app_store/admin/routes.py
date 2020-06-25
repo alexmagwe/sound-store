@@ -4,7 +4,7 @@ from app_store.models import User, Item, Order
 from flask import Blueprint, render_template, redirect, url_for, flash
 from app_store.admin.forms import AdminRegisterForm, ItemForm
 from flask_login import login_user, current_user, logout_user, login_required
-from app_store.admin.utils import save_picture
+from app_store.admin.utils import save_picture1, save_picture2, save_picture3
 
 admin = Blueprint('admin', __name__)
 
@@ -38,8 +38,10 @@ def create_item():
     if current_user.is_admin:
         form = ItemForm()
         if form.validate_on_submit():
-            image_file = save_picture(form.item_pic.data)
-            item = Item(item_pic = image_file,  name = form.name.data, description = form.description.data, price = form.price.data )
+            image_file1 = save_picture1(form.item_pic1.data)
+            image_file2 = save_picture2(form.item_pic2.data)
+            image_file3 = save_picture3(form.item_pic3.data)
+            item = Item(item_pic1 = image_file1, item_pic2 = image_file2, item_pic3 = image_file3, name = form.name.data, description = form.description.data, price = form.price.data )
             db.session.add(item)
             db.session.commit()
             flash(f'Item, {form.name.data} succesfully added to database','success')

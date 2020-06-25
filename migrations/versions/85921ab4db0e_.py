@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 1dbe2caa9b2a
+Revision ID: 85921ab4db0e
 Revises: 
-Create Date: 2020-06-25 00:44:18.015591
+Create Date: 2020-06-25 23:56:38.831129
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '1dbe2caa9b2a'
+revision = '85921ab4db0e'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -40,10 +40,12 @@ def upgrade():
     )
     op.create_table('item',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('item_pic', sa.String(length=80), nullable=False),
+    sa.Column('item_pic1', sa.String(length=80), nullable=False),
+    sa.Column('item_pic2', sa.String(length=80), nullable=False),
+    sa.Column('item_pic3', sa.String(length=80), nullable=False),
     sa.Column('name', sa.String(length=200), nullable=False),
     sa.Column('description', sa.Text(), nullable=False),
-    sa.Column('price', sa.DECIMAL(), nullable=False),
+    sa.Column('price', sa.Integer(), nullable=False),
     sa.Column('category_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['category_id'], ['category.id'], ),
     sa.PrimaryKeyConstraint('id')
@@ -59,7 +61,7 @@ def upgrade():
     op.create_table('order',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('date_posted', sa.DateTime(), nullable=False),
-    sa.Column('total_price', sa.DECIMAL(), nullable=False),
+    sa.Column('total_price', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('item_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['item_id'], ['item.id'], ),

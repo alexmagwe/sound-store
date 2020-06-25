@@ -6,10 +6,28 @@
         {{ form.hidden_tag() }}
             <legend class="border-bottom mb-4">Create Component</legend>
             <div class="form-group">
-                {{ form.item_pic.label() }}
-                {{ form.item_pic(class="form-control-file") }}
-                 {% if form.item_pic.errors %}
-                     {% for error in form.item_pic.errors %}
+                {{ form.item_pic1.label() }}
+                {{ form.item_pic1(class="form-control-file") }}
+                 {% if form.item_pic1.errors %}
+                     {% for error in form.item_pic1.errors %}
+                        <span class="text-danger">{{ error }}</span></br>
+                    {% endfor %}
+                 {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.item_pic2.label() }}
+                {{ form.item_pic2(class="form-control-file") }}
+                 {% if form.item_pic2.errors %}
+                     {% for error in form.item_pic2.errors %}
+                        <span class="text-danger">{{ error }}</span></br>
+                    {% endfor %}
+                 {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.item_pic3.label() }}
+                {{ form.item_pic3(class="form-control-file") }}
+                 {% if form.item_pic3.errors %}
+                     {% for error in form.item_pic3.errors %}
                         <span class="text-danger">{{ error }}</span></br>
                     {% endfor %}
                  {% endif %}

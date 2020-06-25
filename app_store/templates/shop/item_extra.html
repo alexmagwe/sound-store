@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block main %}
+    <div class="row">
+        <div class="flex-grid-thirds">
+            <div class="col-3-md">
+                <img alt="" src="{{  url_for('static', filename='images/' + item.item_pic1)}}">
+            </div>
+            <div class="col-3-md" >
+                <img alt="" src="{{  url_for('static', filename='images/' + item.item_pic2)}}">
+            </div>
+            <div class="col-3-md" >
+                <img alt="" src="{{  url_for('static', filename='images/' + item.item_pic3)}}">
+            </div>
+            <h4><b>Name:{{ item.name }}</b></h4>
+            <h4>Price:{{ item.price }}</h4>
+            <p>{{ item.description }}</p>
+            <button class="btn btn-info-md">Add to Cart</button>
+        </div>
+    </div>
+{% endblock main %}

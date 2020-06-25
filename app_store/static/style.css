@@ -25,9 +25,10 @@ body
 }
 img
 {
-    max-width: 65%;
+    max-width: 40%;
     height: auto;
     border-radius: 5px;
+
 }
 .field-icon 
 {
