@@ -73,9 +73,12 @@ class Ordereditem(db.Model):
 
 
 class Cart(db.Model):
-    item_id = db.Column(db.Integer, db.ForeignKey('item.id'), nullable = False, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable = False, primary_key=True)
+    item_id = db.Column(db.String, db.ForeignKey('item.name'), nullable = False, primary_key=True)
+    user_id = db.Column(db.String, db.ForeignKey('user.username'), nullable = False, primary_key=True)
     quantity = db.Column(db.Integer, nullable = False)
+
+    item = db.relationship(Item)
+    user = db.relationship(User)
 
     def __repr__(self):
         return f"Cart('{self.user_id}','{self.item_id}','{self.quantity}')"

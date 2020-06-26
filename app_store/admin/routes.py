@@ -14,8 +14,7 @@ admin = Blueprint('admin', __name__)
 def dashboard():
     if current_user.is_admin:
         return render_template('admin/dashboard.html', title = 'Admin')
-    else:
-        return redirect(url_for('errors.404'))   
+    return redirect(url_for('errors.404'))   
 
 @admin.route('/admin_register', methods=['GET','POST'])
 def admin_register():
@@ -47,5 +46,4 @@ def create_item():
             flash(f'Item, {form.name.data} succesfully added to database','success')
             return redirect(url_for('admin.create_item'))
         return render_template('admin/create_item.html', title='Add to Database', form=form)
-    else:
-        return redirect(url_for('errors.404'))
+    return redirect(url_for('errors.404'))

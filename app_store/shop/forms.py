@@ -1,13 +1,11 @@
 from flask_wtf import FlaskForm 
-from wtforms import  StringField, SubmitField, SelectField, RadioField
+from wtforms import  IntegerField, SubmitField
 from wtforms.validators import DataRequired
-from app_store.models import Order
+from app_store.models import Cart
 
 
-class ShoppingCartForm(FlaskForm):
-    user_address = StringField('Address', validators=[DataRequired()])
-    item_quantity = RadioField('No of Items', validators=[DataRequired()])
-    payment = SelectField('Payment Method', validators=[DataRequired()])
-    submit = SubmitField('Order')
+class AddToCartForm(FlaskForm):
+    quantity = IntegerField('Set Quantity', validators=[DataRequired()])
+    submit = SubmitField('Add to Cart')
 
 

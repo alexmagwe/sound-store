@@ -22,6 +22,7 @@
                 </div>
                 <div class="navbar-nav">
                     {% if current_user.is_authenticated == True %}
+                    <a class="nav-item nav-link text-dark" href="{{ url_for('shop.cart', name = current_user.id) }}">Cart</a>
                     <a class="nav-item nav-link text-dark" href="{{url_for('user.account',name=current_user.username)}}">Account</a>
                     <a class="nav-item nav-link text-dark" href="{{url_for('user.logout')}}">Logout</a>
                     {% else %}
