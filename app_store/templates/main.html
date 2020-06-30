@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+        <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='store.css')}}">
+
         <script src="{{ url_for('static', filename='style.js') }}"></script>
         <title>
             World of Sound
@@ -32,7 +34,7 @@
             </div>
         </nav>
         <div class="container-fluid">
-            <h1 class="amp">Welcome to the world of Sound</h1>
+            <!-- <h1 class="main-title">Welcome to the world of Sound</h1> -->
             <main role="main" class="flex-grid-thirds">
                 {% block main %}
                 {% endblock main %}

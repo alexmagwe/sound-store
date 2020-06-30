@@ -2,39 +2,26 @@ body
 {
     background-color: ghostwhite;
 }
-.amp
-{
-    text-align: center;
-    font: 40px;
-}
-.flex-grid-thirds
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-}
-.flex-grid-thirds .cols
-{
-    width: 32%;
-    margin: 5px 5px 5px 5px;
-    border-radius: 10px;
-    border: gold;
-}
-img
-{
-    max-width: 40%;
-    height: auto;
-    border-radius: 5px;
+*{
+  box-sizing: border-box;
+padding: 0;
+margin:0;
 
 }
-.field-icon 
-{
-    float: right;
-    margin-left: -25px;
-    margin-top: -25px;
-    position: relative;
-    z-index: 2;
-  }
+
+a{
+  text-decoration: none;
+}
+@font-face {
+  font-family: deCasa;
+  src:url('fonts/dacasa.ttf');
+}
+
+.main-title{
+  font-family:deCasa;
+  font-size:48px;
+}
+.nav-item{
+  font-family:deCasa;
+  font-size:32px; 
+}
