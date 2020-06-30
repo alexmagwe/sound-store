@@ -20,8 +20,12 @@ padding:1em;
   position: relative;
   overflow: hidden;
 }
+@font-face {
+  font-family: dacasa;
+  src:url('fonts/dacase.ttf');
+}
 .item-header{
-  font-family:arial,sans-serif,;
+  font-family:dacasa;
 }
 
 .card{
@@ -45,8 +49,11 @@ padding:1em;
 }
 .carousel-container{
   display: flex;
-  padding:1em;  
+  padding:1em;
   justify-content: space-between;
   flex-wrap: wrap;
   flex: 1;
+}
+p{
+  font-family:sans-serif,arial;
 }

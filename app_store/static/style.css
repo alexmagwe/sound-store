@@ -17,11 +17,19 @@ a{
   src:url('fonts/dacasa.ttf');
 }
 
+@font-face {
+  font-family: alloy;
+  src:url('fonts/AlloyInk-nRLyO.ttf');
+}
+@font-face {
+  font-family: moonglade;
+  src:url('fonts/MoongladeDemoBold-jOzM.ttf');
+}
 .main-title{
-  font-family:deCasa;
+  font-family:alloy;
   font-size:48px;
 }
 .nav-item{
-  font-family:deCasa;
-  font-size:32px; 
+  font-family:moonglade;
+  font-size:24px;
 }
