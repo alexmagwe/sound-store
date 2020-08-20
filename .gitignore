@@ -1,5 +1,8 @@
 requirements.txt
-**/__pycache__/*
+
 bin
+__pycache__
+store
+vault.db
 lib
 pyvenv.cfg
