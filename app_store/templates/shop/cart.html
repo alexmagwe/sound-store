@@ -1,85 +1,31 @@
 {% extends 'base.html' %}
-{% block title %} Shopping Cart {username} {% endblock title %}
 {% block main %}
-<div class="container-fluid">
-    <div class="col-12 ml-auto mr-auto">
-        <h4>Orders made</h4>
-        <form method="POST" action="" enctype="multipart/form-data"> 
-            {{form.hidden_tag()}}
+    <div class="container-fluid">
+        <div class="col-12 ml-auto mr-auto">
+            <h4>Orders made</h4>
+            
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">Delete</th>
                         <th scope="col">#</th>
-                        <th scope="col">Item Ordered</th>
+                        <th scope="col">Item name</th>
                         <th scope="col">Price</th>
-                        <th scope="col">Set Quantity</th>
-                        <th scope="col">Address</th>
-                        <th scope="col">Payment Method</th>
 
                     </tr>
                 </thead>
                 <tbody>
-                    {% for cartitem in cartitems  %}
+                    {% for cart in carts  %}
                     <tr>
                         <th><button>Delete(Icon)</button></th>
-                        <th>{{cartitem.id}}</th>
-                        <th>{{cartitem.purchased.name}}</th>
-                        <th>{{cartitem.purchased.price}}</th>
-                        <th>
-                            <div class="form-group">
-                                {{ form.item_quantity.label(class="form-control-label") }}
-                                {% if form.item_quantity.errors %}
-                                    {{ form.item_quantity(class="form-control form-control-sm is-invalid") }}
-                                    <div class="invalid-feedback">
-                                        {% for error in form.item_quantity.errors %}
-                                            <span>{{ error }}</span>
-                                        {% endfor %}
-                                    </div>
-                                {% else %}
-                                    {{ form.item_quantity(class="form-control form-control-sm") }}
-                                {% endif %}
-                            </div>
-                        </th>
-                        <th>
-                            <div class="form-group">
-                                {{ form.user_address.label(class="form-control-label") }}
-                                {% if form.user_address.errors %}
-                                    {{ form.user_address(class="form-control form-control-sm is-invalid") }}
-                                    <div class="invalid-feedback">
-                                        {% for error in form.user_address.errors %}
-                                            <span>{{ error }}</span>
-                                        {% endfor %}
-                                    </div>
-                                {% else %}
-                                    {{ form.user_address(class="form-control form-control-sm") }}
-                                {% endif %}
-                            </div>
-                        </th>
-                        <th>
-                            <div class="form-group">
-                                {{ form.payment.label(class="form-control-label") }}
-                                {% if form.payment.errors %}
-                                    {{ form.payment(class="form-control form-control-sm is-invalid") }}
-                                    <div class="invalid-feedback">
-                                        {% for error in form.payment.errors %}
-                                            <span>{{ error }}</span>
-                                        {% endfor %}
-                                    </div>
-                                {% else %}
-                                    {{ form.payment(class="form-control form-control-sm") }}
-                                {% endif %}
-                            </div>
-                        </th>
+                        <th>{{cart.id}}</th>
+                        <th>{{cart.item_id}}</th>
+                        <th>{{cart.product.price}}</th>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
-            <div class="form-group">
-                {{ form.submit(class="btn btn-outline-info") }}
-            </div>
-        </form>
+        </div>
     </div>
-</div>
 
 {% endblock main %}
